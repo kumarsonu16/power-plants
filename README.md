@@ -1,16 +1,35 @@
-# Instructions for runing this application
+# Power Plants Application
 
-# Prequisit to run the application
-1. Node.js
-2. typescript
+## Instructions for running this application
 
-# To start the application run the following command
+### Prerequisites
+- Node.js
+- TypeScript
 
-npm install
-npm start
+### Running the Application
 
+To start the application, follow these steps:
 
-# To start the application using docker run the following command
+1. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-docker build -t power-plants .
-docker run -p 3000:3000 power-plants
+2. Start the application:
+    ```bash
+    npm start
+    ```
+
+### Running the Application using Docker
+
+To start the application using Docker, follow these steps:
+
+1. Build the Docker image:
+    ```bash
+    docker build -t power-plants .
+    ```
+
+2. Run the Docker container:
+    ```bash
+    docker run -p 3000:3000 power-plants
+    ```
