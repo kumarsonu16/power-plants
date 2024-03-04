@@ -17,7 +17,7 @@ To start the application, follow these steps:
 
 2. Start the application:
     ```bash
-    npm start
+    npm run build && npm start
     ```
 
 ### Running the Application using Docker
