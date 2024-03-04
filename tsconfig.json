@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+      "target": "ES6",
+      "module": "commonjs",
+      "outDir": "./dist",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "rootDir": "./src",
+      "declaration": true,
+      "inlineSources": true,
+      "inlineSourceMap": true,
+      "strictNullChecks": true,
+      "typeRoots": ["./node_modules/@types", "./types"]
+  },
+  "include": [
+      "src/**/*.ts",
+      "src/**/*.xlsx", // Include .xlsx files in the src directory
+      "src/**/*.xls"
+  ],
+  "exclude": [
+      "node_modules",
+      "dist"
+  ]
+}

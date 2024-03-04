@@ -1,0 +1,218 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1/power-plants",
+      "description": "Local development server"
+    },
+    {
+      "url": "https://api.example.com/api/v1/power-plants",
+      "description": "Production server"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/states": {
+      "get": {
+        "tags": [
+          "Plant"
+        ],
+        "summary": "List Plants by State",
+        "responses": {
+          "200": {
+            "description": "Plants details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "type": "string"
+                      },
+                      "netGeneration": {
+                        "type": "string"
+                      },
+                      "netPercentage": {
+                        "type": "string"
+                      }
+                    },
+                    "example": [
+                      {
+                        "state": "AK",
+                        "netGeneration": "6694128.234000",
+                        "netPercentage": "0.157875"
+                    },
+                    {
+                        "state": "AL",
+                        "netGeneration": "144788892.892000",
+                        "netPercentage": "3.414719"
+                    }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No vehicles found"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "content": {
+          "application/json": {}
+        }
+      }
+    },
+    "/states/{state}": {
+      "get": {
+        "tags": [
+          "Plant"
+        ],
+        "summary": "Plant details by state",
+        "parameters": [
+          {
+            "name": "state",
+            "in": "path",
+            "description": "state",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Plant details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "type": "string"
+                      },
+                      "netGeneration": {
+                        "type": "string"
+                      },
+                      "netPercentage": {
+                        "type": "string"
+                      }
+                    },
+                    "example":  {
+                      "state": "AK",
+                      "netGeneration": "6694128.234000",
+                      "netPercentage": "0.157875"
+                  }
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "content": {
+          "application/json": {}
+        }
+      }
+    },
+    "/top/{topN}": {
+      "get": {
+        "tags": [
+          "Plant"
+        ],
+        "summary": "Get Top N number of plants",
+        "parameters": [
+          {
+            "name": "topN",
+            "in": "path",
+            "description": "Top N",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Maintenance details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "plantName": {
+                        "type": "string"
+                      },
+                      "netGeneration": {
+                        "type": "string"
+                      },
+                      "federalState": {
+                        "type": "string"
+                      } 
+                    },
+                    "example": [
+                      [
+                        {
+                            "plantName": "Palo Verde",
+                            "netGeneration": 31942793.001,
+                            "federalState": "AZ"
+                        },
+                        {
+                            "plantName": "Browns Ferry",
+                            "netGeneration": 29325461,
+                            "federalState": "AL"
+                        }  
+                    ]
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No maintenance found"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "content": {
+          "application/json": {}
+        }
+      }
+    },
+    "content": {
+      "application/json": {}
+    }
+  }
+}
